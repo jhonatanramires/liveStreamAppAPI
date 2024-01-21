@@ -21,6 +21,10 @@ interface User {
 
 const USERS: User[] = [] 
 
+app.get('/', (req,res) => {
+  res.send("Hello World")
+})
+
 app.post('/register',async (req,res) => {
   const { email, password } = req.body;
    
