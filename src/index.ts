@@ -6,11 +6,14 @@ import { StreamChat } from 'stream-chat';
 dotenv.config();
 
 const { PORT, STREAM_API_KEY, STREAM_API_SECRET } = process.env;
+console.log("🚀 ~ PORT, STREAM_API_KEY, STREAM_API_SECRET:", PORT, STREAM_API_KEY, STREAM_API_SECRET)
+
 const client = StreamChat.getInstance(STREAM_API_KEY!, STREAM_API_SECRET)
 
 const app = express();
 
 app.use(express.json());
+
 const salt = genSaltSync(10);
 
 interface User {
@@ -101,4 +104,5 @@ app.post('/login', (req,res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
+  console.log("🚀 ~ app.listen ~ app:", app.routes)
 });

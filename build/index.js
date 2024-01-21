@@ -23,6 +23,9 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 const salt = (0, bcrypt_1.genSaltSync)(10);
 const USERS = [];
+app.get('/', (req, res) => {
+    res.send("Hello World");
+});
 app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     if (!email || !password) {
